@@ -59,4 +59,45 @@ function gen04(counter)
     return gen04(counter)
 end
 
-print(gen04())
+function gen05(counter)
+    local counter = counter or 0
+    if counter >= 100 then
+        return "Too many repeats"
+    end
+
+    local sum = 0
+    local last_number = 0
+
+    local str = random_string(6)
+
+    for i = 1, #str do
+        local char = str:sub(i, i)
+        if char:match("%d") ~= nil then
+            sum = sum + char
+            last_number = char
+        else
+            sum = sum + last_number
+        end
+    end
+
+    if str:sub(1, 1):match("%d") ~= nil then
+        if sum > 7 and sum <= 16 then
+
+            if sum ~= 16 then
+                a = 16 - sum
+                str = str .. a
+            end
+
+            if str:sub(#str, #str):match("%d") ~= nil then
+                if str:sub(#str, #str):match("%d") % 2 == 0 then
+                    return str
+                end
+            end
+        end
+    end
+
+    counter = counter + 1
+    return gen05(counter)
+end
+
+print(gen05())
