@@ -1,2 +1,3 @@
-            *.log
-            .env
+*.log
+.env
+*.out
