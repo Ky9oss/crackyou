@@ -1,6 +1,6 @@
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
 
 void swap(int *, int *);
 void print_enum(); // Prior to C23, print_enum accept any number of arguments of
@@ -25,7 +25,32 @@ int main() {
   // Starting with C23 and always in C++
   print_enum();
 
+  // nullptr: Starting with C23
+  // nullptr use to replace NULL because NULL have different value in different
+  // type:
+  //
+  // NULL
+  // value      type
+  // 0          int
+  // 0L         long
+  // (void *)0  void *
+  //
+  // Error:
+  //    (true ? 1 : NULL) is a constraint violation if NULL has type void *.
+  //    123
+  //
   void *vp = nullptr;
+
+  // Array
+  //    str[11] means 11 elements. But the last one is str[10]. This can be confusing.
+  //    str is the pointer to the first member of the array
+  //    str[i] = *(str + i)
+  //    &str[i] = str + i
+  char str[11];
+  for (unsigned int i = 0; i < 10; ++i) {
+    str[i] = '0' + i;
+  }
+  str[10] = '\0';
 
   return EXIT_SUCCESS;
 }
