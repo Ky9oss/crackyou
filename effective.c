@@ -1,11 +1,31 @@
+#include <math.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <float.h>
+
+static char *c = "fuck world";
+
+void arithmetic_types();
 
 void swap(int *, int *);
 void print_enum(); // Prior to C23, print_enum accept any number of arguments of
                    // any type. Starting with C23 and always in C++, print_enum
                    // takes no argument
+
+// Prior to C23
+// void print_enum(int sun, int mon ,int tue, int wed) {
+//   printf("enum: sun = %d, mon = %d, tue = %d, wed = %d", sun, mon, tue, wed);
+// }
+//
+// enum day { sun, mon, tue, wed, thu, fri, sat };
+// print_enum(sun, mon ,tue ,wed);
+
+// Starting with C23 and always in C++
+void print_enum() {
+  enum day { sun, mon, tue, wed, thu, fri, sat };
+  printf("enum: sun = %d, mon = %d, tue = %d, wed = %d", sun, mon, tue, wed);
+}
 
 // pass by value (default) vs pass by reference
 void swap(int *pa, int *pb) {
@@ -15,7 +35,7 @@ void swap(int *pa, int *pb) {
   printf("swap: a = %d, b = %d\n", *pa, *pb);
 }
 
-int main() {
+void getting_start() {
   int a = 22;
   int b = 16;
   swap(&a, &b);
@@ -42,29 +62,47 @@ int main() {
   void *vp = nullptr;
 
   // Array
-  //    str[11] means 11 elements. But the last one is str[10]. This can be confusing.
-  //    str is the pointer to the first member of the array
-  //    str[i] = *(str + i)
-  //    &str[i] = str + i
+  //    str[11] means 11 elements. But the last one is str[10]. This can be
+  //    confusing. str is the pointer to the first member of the array str[i] =
+  //    *(str + i) &str[i] = str + i
   char str[11];
   for (unsigned int i = 0; i < 10; ++i) {
     str[i] = '0' + i;
   }
   str[10] = '\0';
 
+  printf("%s", c);
+}
+
+int main() {
+
+  arithmetic_types();
+
   return EXIT_SUCCESS;
 }
 
-// Prior to C23
-// void print_enum(int sun, int mon ,int tue, int wed) {
-//   printf("enum: sun = %d, mon = %d, tue = %d, wed = %d", sun, mon, tue, wed);
-// }
-//
-// enum day { sun, mon, tue, wed, thu, fri, sat };
-// print_enum(sun, mon ,tue ,wed);
+void arithmetic_types() {
+  int mask = 0b110011; // start with C23
+  unsigned _BitInt(31) s = 17;
+  double x = 0.23 * DBL_MIN_EXP;
 
-// Starting with C23 and always in C++
-void print_enum() {
-  enum day { sun, mon, tue, wed, thu, fri, sat };
-  printf("enum: sun = %d, mon = %d, tue = %d, wed = %d", sun, mon, tue, wed);
+  const char *show_classification(double x) {
+    switch (fpclassify(x)) {
+    case FP_INFINITE:
+      return "Inf";
+    case FP_NAN:
+      return "NaN";
+    case FP_NORMAL:
+      return "normal";
+    case FP_SUBNORMAL:
+      return "subnormal";
+    case FP_ZERO:
+      return "zero";
+    default:
+      return "unknown";
+    }
+  };
+
+  char *a = show_classification(x);
+  printf("%s", a);
 }

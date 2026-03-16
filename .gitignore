@@ -3,3 +3,8 @@
 *.out
 hello
 effective
+temp.c
+temp
+tags
+all-includes.txt
+gen-tags.sh
