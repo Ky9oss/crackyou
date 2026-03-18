@@ -8,3 +8,5 @@ temp
 tags
 all-includes.txt
 gen-tags.sh
+*.exe
+*.obj
