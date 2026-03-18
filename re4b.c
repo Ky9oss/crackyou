@@ -14,8 +14,9 @@ char *interim(int n, char *s) {
 };
 
 int main() {
-  // This will succeed in MSVC but wrong in GCC. Because GCC optimize the return
-  //    value in amsg to 0
+  // This is a example in RE4B
+  // It's undefined behavior but will run in MSVC sometimes because 8000 bytes stack space is too large to be overlay by printf().
+  // It will trigger segmentation fault in GCC. Because GCC optimize the return value in amsg to 0.
   /* amsg:
           push	rbp
           mov	rbp, rsp
@@ -33,6 +34,7 @@ int main() {
           leave
           ret
           */
+
   printf("%s\n", interim(1234, "something wrong!"));
   return 1;
 }
