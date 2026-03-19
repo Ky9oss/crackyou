@@ -219,4 +219,7 @@ void arithmetic_types() {
   printf("!nullptr = %d\n", !nullptr);
   printf("!NULL = %d\n", !NULL);
 
+  printf("5 && 7 = %d\n", 5 && 7);
+  printf("5 && 0 = %d\n", 5 && 0);
+
 }

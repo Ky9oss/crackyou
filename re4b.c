@@ -14,7 +14,7 @@ char *interim(int n, char *s) {
 };
 
 int main() {
-  // This is a example in RE4B
+  // This is a example in RE4B.
   // It's undefined behavior but will run in MSVC sometimes because 8000 bytes stack space is too large to be overlay by printf().
   // It will trigger segmentation fault in GCC. Because GCC optimize the return value in amsg to 0.
   /* amsg:
