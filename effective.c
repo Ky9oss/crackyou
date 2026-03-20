@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 static char *c = "fuck world";
+static const unsigned int num_elem = 12;
 
 void arithmetic_types();
 
@@ -237,11 +238,35 @@ void dynamically_allocated_memory() {
   // *p = 0;
   // printf("%d\n", p == nullptr);
   // printf("%d\n", (void *)p);
+
+  char *msg = (char *)alloca(50);
+}
+
+void sizeof_VLA_side_effects() {
+
+  size_t size = 12;
+  printf("%zu\n", size); // prints 12
+
+  (void)(sizeof(size++));
+  printf("%zu\n", size); // prints 12
+
+  (void)sizeof(int[size++]);
+  printf("%zu\n", size); // prints 13
+
+  typedef int foo[size++];
+  printf("%zu\n", size); // prints 14
+
+  typeof(int[size++]) f;
+  printf("%zu\n", size); // prints 15
+                         //
+  int array[size++];
+  printf("%zu\n", size); // prints 16
 }
 
 int main() {
 
   dynamically_allocated_memory();
+  sizeof_VLA_side_effects();
 
   return EXIT_SUCCESS;
 }
