@@ -1,5 +1,6 @@
 #include <float.h>
 #include <math.h>
+#include <stdalign.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -72,13 +73,6 @@ void getting_start() {
   str[10] = '\0';
 
   printf("%s", c);
-}
-
-int main() {
-
-  arithmetic_types();
-
-  return EXIT_SUCCESS;
 }
 
 #define TYPEOF(x)                                                              \
@@ -222,4 +216,32 @@ void arithmetic_types() {
   printf("5 && 7 = %d\n", 5 && 7);
   printf("5 && 0 = %d\n", 5 && 0);
 
+  char *arr[777];
+  printf("alignment of arr: %d", alignof(arr));
+}
+
+void dynamically_allocated_memory() {
+  int a = 4;
+
+  char *p = malloc(100);
+  printf("%d\n", p == nullptr);
+  printf("%s\n", *p);
+  printf("%p\n", (void *)p);
+
+  char *p2;
+  p = p2;
+
+  printf("%d\n", p == nullptr);
+  printf("%d\n", (void *)p);
+
+  // *p = 0;
+  // printf("%d\n", p == nullptr);
+  // printf("%d\n", (void *)p);
+}
+
+int main() {
+
+  dynamically_allocated_memory();
+
+  return EXIT_SUCCESS;
 }
