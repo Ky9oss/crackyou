@@ -10,3 +10,6 @@ all-includes.txt
 gen-tags.sh
 *.exe
 *.obj
+Session.vim
+tagfiles
+bin
