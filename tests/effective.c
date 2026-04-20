@@ -1,3 +1,7 @@
+// Some examples for EFFECTIVE C, 2ND EDITION
+//
+// Author: Ky9oss
+
 #include <float.h>
 #include <math.h>
 #include <stdalign.h>
