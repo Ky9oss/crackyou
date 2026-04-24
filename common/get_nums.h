@@ -45,7 +45,7 @@ int  get_long(char *arg, int flags, long *value, char *msg );
 
 /** get_int()
     On successful processing, returns VALID_NUMBER and stores the resulting value
-    in value, otherwise returns one of the  error codes..
+    in value, otherwise returns one of the  error codes.
     On return, msg contains a string with a suitable message for the caller
     to pass to an error-handling function.
     flags is used to decide whether trailing characters, negative values,
