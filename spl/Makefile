@@ -1,6 +1,6 @@
-SPL_INCLUDE_DIR = ../../include
-SPL_LIB_DIR     = ../../lib
-SPL_BIN_DIR     = ../../bin
+SPL_INCLUDE_DIR = ../include
+SPL_LIB_DIR     = ../lib
+SPL_BIN_DIR     = ../bin
 SPL_LIB         = $(SPL_LIB_DIR)/libspl.a
 SPL_HDRS        = \
 common_hdrs.h\
