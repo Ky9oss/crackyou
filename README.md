@@ -6,8 +6,8 @@ Just My scripts :-)
 
               /   \                  /      \
              '      \              /          \
-            |       |Oo          o|            |
-            `    \  |OOOo......oOO|   /        |
+            |       |Oo          o|            | 
+            `    \  |OOOo......oOO|   /        | 
              `    \\OOOOOOOOOOOOOOO\//        /
                \ _o\OOOOOOOOOOOOOOOO//. ___ /
            ______OOOOOOOOOOOOOOOOOOOOOOOo.___
