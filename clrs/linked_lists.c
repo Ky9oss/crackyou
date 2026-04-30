@@ -46,6 +46,8 @@ int getSize(LinkedList *list);
 int main() {
   printf("%d\n", sizeof(Node));
   printf("%d\n", sizeof(LinkedList));
+
+  LinkedList *list = createList();
   return 0;
 };
 
@@ -69,4 +71,16 @@ Node *createNode(int key) {
   node->next = NULL;
   node->key = key;
   return node;
+}
+
+void destroyList(LinkedList *list) {
+  Node *node = list->head;
+  while (node->next != NULL) {
+    Node *next_node = node->next;
+    free(node);
+    node = next_node;
+  };
+  free(node);
+  free(list);
+  printf("Destroyed\n");
 }
