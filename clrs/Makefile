@@ -19,7 +19,10 @@ time_utils.h
 SRCS       = $(wildcard *.c)
 ELFS       = $(patsubst %.c,%,$(SRCS))
 CC         = gcc-15
-CFLAGS    += -Wall -g
+CFLAGS    += -Wall
+
+# HACK: crack it by assembly
+ADDERSS_SANITIZER_FALGS += -g3 -fno-omit-frame-pointer -fno-common -fsanitize=address
 
 ASMS       = $(patsubst %.c,%.s,$(SRCS))
 ASMFLAGS   = -S -masm=intel -fno-asynchronous-unwind-tables -fno-exceptions
@@ -32,7 +35,7 @@ asm: $(ASMS)
 	$(CC) $(CFLAGS) $(ASMFLAGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@
 
 %:$(CURRENT_DIR)/%.c
-	$(CC) $(CFLAGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@
+	$(CC) $(CFLAGS) $(ADDERSS_SANITIZER_FALGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@
 
 clean:
 	-rm -f $(SPL_BIN_DIR)/$(ELFS)
