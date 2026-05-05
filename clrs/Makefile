@@ -35,7 +35,8 @@ asm: $(ASMS)
 	$(CC) $(CFLAGS) $(ASMFLAGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@
 
 %:$(CURRENT_DIR)/%.c
-	$(CC) $(CFLAGS) $(ADDERSS_SANITIZER_FALGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@
+	$(CC) $(CFLAGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@
+	$(CC) $(CFLAGS) $(ADDERSS_SANITIZER_FALGS) -I$(SPL_INCLUDE_DIR) -L$(SPL_LIB_DIR) $< -lspl -o $(SPL_BIN_DIR)/$@-asan
 
 clean:
 	-rm -f $(SPL_BIN_DIR)/$(ELFS)
