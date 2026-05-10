@@ -85,7 +85,7 @@ int main() {
   };
 
   offset = lseek(fd, 0, SEEK_END);
-  // TODO: This sick program has not done. I just tired.
+  // TODO: This sick program has not done. I'm just tired.
 
   printf("%ld\n", sizeof(struct utmpx));
   return 0;
