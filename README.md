@@ -1,6 +1,6 @@
 # Crackyou
 
-Just My scripts :-)
+This collection includes some scripts and exercises I've used in penetration testing, reverse engineering, and programming.
 
 ```txt
 

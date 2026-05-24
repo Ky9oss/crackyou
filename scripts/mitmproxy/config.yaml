@@ -1,0 +1,13 @@
+console_eventlog_verbosity: info
+anticache: true
+listen_port: 19999
+block_list:
+- '|~d gtv2.com|444'
+- '|~d gtv3.com|444'
+- '|~d gtv4.com|444'
+- '|~d adblockplus.org|444'
+console_palette: dark
+console_palette_transparent: false
+ssl_insecure: true
+mode:
+- 'upstream:http://127.0.0.1:7897'
