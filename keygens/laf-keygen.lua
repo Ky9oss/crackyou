@@ -1,5 +1,5 @@
 -- #############################################################################
--- Interpreter: luajit
+-- Run: luajit laf-keygen.lua
 -- Dependencies: Lua Bitop (https://bitop.luajit.org/)
 -- Description: Keygen for exercise (https://github.com/DazzleCatDuo/X86-SOFTWARE-REVERSE-ENGINEERING-CRACKING-AND-COUNTER-MEASURES/tree/main/Lab%20-%20Cracking%20LaFarge)
 -- Author: Ky9oss

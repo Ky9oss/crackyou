@@ -1,5 +1,5 @@
 -- #############################################################################
--- Interpreter: luajit
+-- Run: luajit ioli-keygen.lua
 -- Dependencies: Lua Bitop (https://bitop.luajit.org/)
 -- Description: Keygen for exercise (https://github.com/radareorg/radare2-book/raw/master/src/crackmes/ioli/IOLI-crackme.tar.gz)
 -- Author: Ky9oss
