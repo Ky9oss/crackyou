@@ -63,3 +63,6 @@ include/sys_hdrs.h
 include/time_utils.h
 build
 TODOLIST.md
+
+apikey.txt
+scripts/vt_check/apikey.txt
