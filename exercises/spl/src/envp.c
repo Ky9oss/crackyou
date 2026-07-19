@@ -8,6 +8,7 @@ int main (int argc, char *argv[], char *envp[])
         printf ("%s\n", envp[i]);
         i++;
     }
+    printf( "NewNewNew\n");
     return 0;
 }
 

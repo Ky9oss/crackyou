@@ -1,0 +1,11 @@
+[edit-compile-run]
+
+builder = "custom" # gcc clang make autotools cmake custom
+
+# Reuqired: builder = "custom"
+# Description: 
+#   $@ is current file's absolute path
+#   $bin is project's bin folder
+# Example:
+#   custom_command = "gcc $@ -o $bin/hello" 
+custom_command = "gcc -fPIC -shared -O3 $@ -o $bin/pic.so"

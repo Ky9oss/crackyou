@@ -14,7 +14,7 @@ SRCS       = $(wildcard $(SPL_SRC_DIR)/*.c)
 
 ELFS       = $(filter-out $(patsubst $(SPL_SRC_DIR)/%.c,%,$(INCOMPLETE)),$(patsubst $(SPL_SRC_DIR)/%.c,%,$(SRCS)))
 CC         = gcc-15
-CFLAGS    += -Wall -g
+CFLAGS    += -Wall -g3
 
 ASMS       = $(patsubst $(SPL_SRC_DIR)/%.c,%.s,$(SRCS))
 ASMFLAGS   = -S -masm=intel -fno-asynchronous-unwind-tables -fno-exceptions
