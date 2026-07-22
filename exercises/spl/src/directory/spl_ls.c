@@ -19,7 +19,15 @@
 // to indicate its type.
 // -g # Display each entry's group.
 
+static int cmpstrp(const void *p1, const void *p2) {
+  return strcmp(*(const char **)p1, *(const char **)p2);
+}
+
 int main(int argc, char *argv[]) {
+  int capacity = 8;
+  int size = 0;
+  char **arr = malloc(capacity * sizeof(char *));
+
   DIR *dir = opendir(".");
   if (dir == NULL) {
     char *msg = "Open dir failed!";
@@ -28,7 +36,16 @@ int main(int argc, char *argv[]) {
 
   struct dirent *entry;
   while ((entry = readdir(dir)) != NULL) {
-    printf("%s\n", entry->d_name);
+    if (size == capacity) {
+      capacity *= 2;
+      arr = realloc(arr, capacity * sizeof(char *));
+    };
+    arr[size++] = entry->d_name;
+  };
+
+  qsort(&arr[0], size, sizeof(char *), cmpstrp);
+  for(int i=0;i<size;i++){
+    printf("%s\n", arr[i]);
   };
 
   if (errno != 0) {
